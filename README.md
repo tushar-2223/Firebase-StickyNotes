@@ -4,5 +4,5 @@
 
 
 Setup:
-- create firebase project and open add config in firebase.js file
+- create firebase project and add config details in src/firebase.js file
 - run ```npm i && npm start``` to start the app
