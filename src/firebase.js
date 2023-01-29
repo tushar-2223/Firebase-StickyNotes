@@ -2,9 +2,9 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/database";
 
 const firebaseConfig = {
-  apiKey: < APIKEY >,
-  authDomain: <>,
-  databaseURL: <FIREBASEURL>,
+  apiKey: 'APIKEY',
+  authDomain: '',
+  databaseURL: 'FIREBASEURL',
   projectId: "fir-sticky-notes",
   storageBucket: <>,
   messagingSenderId: "907951786814",
