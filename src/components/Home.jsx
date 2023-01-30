@@ -22,7 +22,7 @@ const Home = () => {
   }, []);
 
   return (
-      <div className="container flex flex-wrap justify-center p-5">
+      <div className="container flex flex-wrap justify-center p-5 mt-40 md:mt-0">
         {Object.keys(data).map((id) => {
           return (
             <Card noteData={data} id={id} />

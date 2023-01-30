@@ -26,9 +26,9 @@ const Card = ({ noteData, id }) => {
 
   //Editnote
 
-  const [state, setState] = useState({ title: noteData[id].title, notesdetail: noteData[id].notesdetail })
+  const [state, setState] = useState({ title: noteData[id].title, notesdetail: noteData[id].notesdetail,currentDate : noteData[id].currentDate })
 
-  const { title, notesdetail } = state;
+  const { title, notesdetail,currentDate} = state;
 
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -73,10 +73,9 @@ const Card = ({ noteData, id }) => {
         </div>
       </div>
 
-
-
+      
       {/* Editpage Modal*/}
-
+      
       <div className='h-screen fixed z-10'>
         <Modal
           open={open}
@@ -86,7 +85,7 @@ const Card = ({ noteData, id }) => {
           className="absolute flex justify-center items-center"
         >
           <div className="bg-slate-800 p-4 rounded-lg border-none">
-            <form method='POST' className='addnoteform w-[400px] flex flex-col gap-4'>
+            <form method='POST' className='addnoteform w-[290px]  md:w-[400px] flex flex-col gap-4'>
               <div className="imputbox">
                 <input type="text"
                   placeholder='Title' name="title" className='w-full outline-none font-semibold p-3 rounded-lg'

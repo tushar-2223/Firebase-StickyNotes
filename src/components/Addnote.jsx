@@ -51,8 +51,9 @@ const Addnote = () => {
 
 
     return (
-        <div className='h-screen fixed z-10'>
-            <div className='h-screen flex items-end relative left-[35vh] md:left-[200vh]'>
+        <div className='h-screen absolute md:fixed z-10'>
+            {/* <div className='h-screen flex items-end relative left-[35vh] md:left-[200vh]'> */}
+            <div className='h-screen flex items-start md:items-end relative left-[150px] md:left-[200vh] top-40 md:top-0'>
                 <div onClick={handleOpen} className='rounded-full bg-gradient-to-l from-blue-500 to-red-500  my-10 hover:translate-y-1 cursor-pointer p-4'><AddIcon fontSize='large' className='text-white' /></div>
             </div>
 
@@ -64,7 +65,7 @@ const Addnote = () => {
                 className="absolute flex justify-center items-center"
             >
                 <div className="bg-slate-800 p-4 rounded-lg border-none">
-                    <form method='POST' className='addnoteform w-[400px] flex flex-col gap-4'>
+                    <form method='POST' className='addnoteform  w-[290px]  md:w-[400px] flex flex-col gap-4'>
                         <div className="imputbox">
                             <input type="text"
                                 placeholder='Title' name="title" className='w-full outline-none font-semibold p-3 rounded-lg'
