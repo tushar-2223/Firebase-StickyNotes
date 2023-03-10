@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     fireDB.child("sticky-notes-db").on("value", (snapshot) => {
       if (snapshot.val() !== null) {
-        setData({ ...snapshot.val()});
+        setData({ ...snapshot.val() });
       } else {
         setData({});
       }
@@ -22,13 +22,13 @@ const Home = () => {
   }, []);
 
   return (
-      <div className="container flex flex-wrap justify-center p-5 mt-40 md:mt-0">
-        {Object.keys(data).map((id) => {
-          return (
-            <Card noteData={data} id={id} />
-          )
-        })}
-      </div>
+    <div className="container flex flex-wrap justify-center p-5 mt-0">
+      {Object.keys(data).map((id) => (
+        <>
+          <Card noteData={data} id={id} />
+        </>
+      ))}
+    </div>
   )
 }
 

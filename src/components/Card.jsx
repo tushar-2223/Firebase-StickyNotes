@@ -51,7 +51,7 @@ const Card = ({ noteData, id }) => {
 
   return (
     <>
-      <div className="box w-[100%] md:w-auto bg-slate-800 m-5 rounded-xl hover:bg-gradient-to-l from-pink-500 to-blue-500 p-1 break-inside-avoid-column" key={id}>
+      <div className="box w-full md:w-auto bg-slate-800 mb-3 md:m-5 rounded-xl hover:bg-gradient-to-l from-pink-500 to-blue-500 p-1 break-inside-avoid-column" key={id}>
         <CardActionArea>
           <div className="innertextsection h-40 md:w-80 rounded-xl bg-slate-900 p-2 overflow-y-auto">
             <h2 className='text-blue-500 font-semibold text-xl mb-1'>{noteData[id].title}</h2>

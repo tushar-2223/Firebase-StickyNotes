@@ -38,7 +38,8 @@ const Addnote = () => {
         } else {
             await fireDB.child("sticky-notes-db").push(state, (err) => {
                 if (err) {
-                    toast.error(err); handleClose();
+                    toast.error(err);
+                    handleClose();
                 } else {
                     toast.success("Note Added Successfully")
                     setState({ ...state, title: "", notesdetail: "" });
@@ -51,43 +52,47 @@ const Addnote = () => {
 
 
     return (
-        <div className='h-screen absolute md:fixed z-10'>
-            {/* <div className='h-screen flex items-end relative left-[35vh] md:left-[200vh]'> */}
-            <div className='h-screen flex items-start md:items-end relative left-[150px] md:left-[200vh] top-40 md:top-0'>
-                <div onClick={handleOpen} className='rounded-full bg-gradient-to-l from-blue-500 to-red-500  my-10 hover:translate-y-1 cursor-pointer p-4'><AddIcon fontSize='large' className='text-white' /></div>
+
+        <>
+
+            <div className='fixed right-0 bottom-0 m-5 z-50'>
+                <div onClick={handleOpen} className='rounded-full bg-gradient-to-l from-blue-500 to-red-500  hover:translate-y-1 cursor-pointer p-3 md:p-4'><AddIcon fontSize='large' className='text-white' /></div>
             </div>
 
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-                className="absolute flex justify-center items-center"
-            >
-                <div className="bg-slate-800 p-4 rounded-lg border-none">
-                    <form method='POST' className='addnoteform  w-[290px]  md:w-[400px] flex flex-col gap-4'>
-                        <div className="imputbox">
-                            <input type="text"
-                                placeholder='Title' name="title" className='w-full outline-none font-semibold p-3 rounded-lg'
-                                value={state.title}
-                                onChange={handleInput} />
-                        </div>
-                        <div className="imputbox">
-                            <textarea rows="4" type="text"
-                                placeholder='write your note...'
-                                name="notesdetail" className='resize-none font-semibold w-full outline-none rounded-lg p-3'
-                                value={state.notesdetail}
-                                onChange={handleInput}
-                            />
-                        </div>
-                        <div className="submitbtn text-center">
-                            <input type="submit" className='bg-green-400 font-semibold p-3 rounded-lg cursor-pointer hover:translate-y-1' value="Add Note" onClick={handleSubmit}
-                            />
-                        </div>
-                    </form>
-                </div>
-            </Modal>
-        </div>
+            <div className='h-screen absolute md:fixed z-10'>
+                <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                    className="absolute flex justify-center items-center"
+                >
+                    <div className="bg-slate-800 p-4 rounded-lg border-none">
+                        <form method='POST' className='addnoteform  w-[290px]  md:w-[400px] flex flex-col gap-4'>
+                            <div className="imputbox">
+                                <input type="text"
+                                    placeholder='Title' name="title" className='w-full outline-none font-semibold p-3 rounded-lg'
+                                    value={state.title}
+                                    onChange={handleInput} />
+                            </div>
+                            <div className="imputbox">
+                                <textarea rows="4" type="text"
+                                    placeholder='write your note...'
+                                    name="notesdetail" className='resize-none font-semibold w-full outline-none rounded-lg p-3'
+                                    value={state.notesdetail}
+                                    onChange={handleInput}
+                                />
+                            </div>
+                            <div className="submitbtn text-center">
+                                <input type="submit" className='bg-green-400 font-semibold p-3 rounded-lg cursor-pointer hover:translate-y-1' value="Add Note" onClick={handleSubmit}
+                                />
+                            </div>
+                        </form>
+                    </div>
+                </Modal>
+            </div>
+
+        </>
     );
 }
 
